@@ -1,0 +1,115 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Game container styling */
+.game-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 60%;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    position: relative;
+}
+
+/* Player and opponent area styling */
+.player-area, .opponent-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+}
+
+.opponent-area {
+    align-items: center;
+    flex-direction: column-reverse;
+}
+
+/* Avatar styling */
+.avatar {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+}
+
+.avatar p {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Card styling */
+.player-cards, .opponent-cards {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.card {
+    width: 80px;
+    height: 120px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Game center styling */
+.game-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Timer styling */
+.timer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#timer {
+    font-weight: bold;
+}
+
+/* Responsive design */
+@media (max-width: 800px) {
+    .game-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .player-area, .opponent-area {
+        width: 100%;
+    }
+
+    .player-cards, .opponent-cards {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
