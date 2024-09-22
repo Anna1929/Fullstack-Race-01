@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password reminder</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <div id="timer"></div>
+    <script>
+        let matchId = 'someMatchId'; // Идентификатор текущего матча
+        let timerElement = document.getElementById('timer');
+
+        // Функция для получения состояния матча с сервера
+        function fetchMatchState() {
+            fetch(`/game/state/${matchId}`)
+                .then(response => response.json())
+                .then(data => {
+                    let timeRemaining = data.timeRemaining;
+                    startCountdown(timeRemaining);
+                });
+        }
+
+        // Функция обратного отсчета
+        function startCountdown(seconds) {
+            let countdown = setInterval(() => {
+                timerElement.innerText = `Оставшееся время: ${seconds} сек.`;
+                if (seconds <= 0) {
+                    clearInterval(countdown);
+                    alert('Время хода истекло!');
+                }
+                seconds--;
+            }, 1000);
+        }
+
+        // Вызываем функцию для получения состояния матча и запуска таймера
+        fetchMatchState();
+    </script>
+</body>
